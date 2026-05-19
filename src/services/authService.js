@@ -1,41 +1,26 @@
-import { ENV } from "../config/env";
+import {
+  verifyRecoveryTokenRequest,
+  setSession,
+  updateUser,
+} from "./apiClient";
 
 /* =========================
    VERIFY RECOVERY TOKEN
 ========================= */
 
-export async function verifyRecoveryToken(tokenHash) {
+export async function verifyRecoveryToken(
+  tokenHash
+) {
 
-  const verifyRes = await fetch(
-    `${ENV.SUPABASE_URL}/auth/v1/verify`,
-    {
-      method: "POST",
+  const { data, error } =
+    await verifyRecoveryTokenRequest(tokenHash);
 
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": ENV.SUPABASE_ANON_KEY,
-      },
-
-      body: JSON.stringify({
-        token_hash: tokenHash,
-        type: "recovery",
-      }),
-    }
-  );
-
-  const verifyData = await verifyRes.json();
-
-  if (!verifyRes.ok || !verifyData.access_token) {
+  if (error || !data.session?.access_token) {
 
     const expired =
-      verifyRes.status === 401 ||
-      (
-        verifyData.error_description ||
-        verifyData.message ||
-        ""
-      )
-        .toLowerCase()
-        .includes("expir");
+      error?.message
+        ?.toLowerCase()
+        .includes("expired");
 
     throw new Error(
       expired
@@ -44,7 +29,7 @@ export async function verifyRecoveryToken(tokenHash) {
     );
   }
 
-  return verifyData.access_token;
+  return data.session.access_token;
 }
 
 /* =========================
@@ -56,50 +41,48 @@ export async function updatePassword(
   password
 ) {
 
-  const res = await fetch(
-    `${ENV.SUPABASE_URL}/auth/v1/user`,
-    {
-      method: "PUT",
+  /* -------------------------
+     SET TEMP SESSION
+  ------------------------- */
 
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": ENV.SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${sessionToken}`,
-      },
-
-      body: JSON.stringify({
-        password,
-      }),
-    }
+  const {
+    error: sessionError,
+  } = await setSession(
+    sessionToken,
+    sessionToken
   );
 
-  const data = await res.json();
+  if (sessionError) {
 
-  if (!res.ok) {
+    throw new Error(
+      "Session expired. Please request a new reset link."
+    );
+  }
 
-    const isExpired =
-      res.status === 401 ||
-      (
-        data.msg ||
-        data.message ||
-        data.error_description ||
-        ""
-      )
-        .toLowerCase()
-        .includes("expir");
+  /* -------------------------
+     UPDATE PASSWORD
+  ------------------------- */
+
+  const { error } =
+    await updateUser(password);
+
+  if (error) {
+
+    const expired =
+      error.message
+        ?.toLowerCase()
+        .includes("expired");
 
     throw new Error(
 
-      isExpired
+      expired
         ? "This reset link has expired. Please request a new one from the app."
         : (
-            data.msg ||
-            data.message ||
-            data.error_description ||
+            error.message ||
             "Update failed. Please try again."
           )
     );
   }
 
-  return data;
+  return true;
 }
