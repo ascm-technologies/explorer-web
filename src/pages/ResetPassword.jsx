@@ -1,34 +1,18 @@
 import { useMemo, useState } from "react";
 import "../styles/reset-password.css";
+import {
+  verifyRecoveryToken,
+  updatePassword,
+} from "../services/authService";
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+import {
+  extractRecoveryTokens,
+} from "../utils/authTokens";
 
 export default function ResetPassword() {
 
-  /* -----------------------------
-     TOKEN EXTRACTION (UNCHANGED)
-  ----------------------------- */
-
   const { accessToken, tokenHash } = useMemo(() => {
-
-    const hashParams = new URLSearchParams(
-      window.location.hash.replace("#", "")
-    );
-
-    const queryParams = new URLSearchParams(
-      window.location.search
-    );
-
-    return {
-      accessToken:
-        hashParams.get("access_token") ||
-        queryParams.get("access_token"),
-
-      tokenHash:
-        queryParams.get("token_hash"),
-    };
-
+    return extractRecoveryTokens();
   }, []);
 
   /* -----------------------------
@@ -103,53 +87,10 @@ export default function ResetPassword() {
       let sessionToken = accessToken;
 
       /* -----------------------------
-         token_hash flow
+         token hash validation
       ----------------------------- */
-
       if (tokenHash) {
-
-        const verifyRes = await fetch(
-          `${SUPABASE_URL}/auth/v1/verify`,
-          {
-            method: "POST",
-
-            headers: {
-              "Content-Type": "application/json",
-              "apikey": SUPABASE_ANON_KEY,
-            },
-
-            body: JSON.stringify({
-              token_hash: tokenHash,
-              type: "recovery",
-            }),
-          }
-        );
-
-        const verifyData = await verifyRes.json();
-
-        if (!verifyRes.ok || !verifyData.access_token) {
-
-          const msg =
-            verifyRes.status === 401 ||
-            (
-              verifyData.error_description ||
-              verifyData.message ||
-              ""
-            )
-              .toLowerCase()
-              .includes("expir")
-
-              ? "This reset link has expired. Please request a new one from the app."
-
-              : "Invalid reset link. Please request a new one.";
-
-          showMsg(msg, "error");
-          setLoading(false);
-
-          return;
-        }
-
-        sessionToken = verifyData.access_token;
+        sessionToken = await verifyRecoveryToken(tokenHash);
       }
 
       /* -----------------------------
@@ -172,57 +113,10 @@ export default function ResetPassword() {
          PASSWORD UPDATE
       ----------------------------- */
 
-      const res = await fetch(
-        `${SUPABASE_URL}/auth/v1/user`,
-        {
-          method: "PUT",
-
-          headers: {
-            "Content-Type": "application/json",
-            "apikey": SUPABASE_ANON_KEY,
-            "Authorization": `Bearer ${sessionToken}`,
-          },
-
-          body: JSON.stringify({
-            password,
-          }),
-        }
+      await updatePassword(
+        sessionToken,
+        password
       );
-
-      const data = await res.json();
-
-      if (!res.ok) {
-
-        const isExpired =
-          res.status === 401 ||
-          (
-            data.msg ||
-            data.message ||
-            data.error_description ||
-            ""
-          )
-            .toLowerCase()
-            .includes("expir");
-
-        showMsg(
-
-          isExpired
-            ? "This reset link has expired. Please request a new one from the app."
-            : (
-                data.msg ||
-                data.message ||
-                data.error_description ||
-                "Update failed. Please try again."
-              ),
-
-          "error"
-        );
-
-        setLoading(false);
-
-        return;
-      }
-
       /* -----------------------------
          SUCCESS
       ----------------------------- */
@@ -234,9 +128,10 @@ export default function ResetPassword() {
 
       setDone(true);
 
-    } catch {
+    } catch (error) {
 
       showMsg(
+        error.message ||
         "Connection error. Please check your network and try again.",
         "error"
       );
