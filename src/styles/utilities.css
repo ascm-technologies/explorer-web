@@ -1,0 +1,16 @@
+.text-muted {
+  color: var(--color-muted);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-surface {
+  background: var(--color-surface);
+}
+
+.card-accent {
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+}

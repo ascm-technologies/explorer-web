@@ -1,0 +1,132 @@
+.card {
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.04),
+    0 8px 24px rgba(0,0,0,.06);
+
+  margin-bottom: 24px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+
+  border-radius: 12px;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-outline {
+  background: transparent;
+
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+
+  color: var(--color-text);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-light {
+  background: var(--color-primary);
+  color: var(--color-surface);
+
+  padding: 12px 24px;
+
+  border-radius: 12px;
+
+  transition: .2s;
+}
+
+.btn-light:hover {
+  background: var(--color-primary-dark);
+}
+
+/* =========================
+   FEATURE CARD
+========================= */
+
+.feature-card {
+  padding: 32px 24px;
+
+  background: var(--color-surface-alt);
+
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+
+  margin: 0 auto 20px;
+
+  border-radius: 16px;
+
+  background: rgba(0,71,171,.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-primary);
+}
+
+/* =========================
+   STEP CARD
+========================= */
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  text-align: center;
+
+  padding: 24px;
+}
+
+.step-circle {
+  width: 64px;
+  height: 64px;
+
+  margin: 0 auto 24px;
+
+  font-size: 1.2rem;
+
+  border-radius: 50%;
+
+  background: var(--color-primary);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

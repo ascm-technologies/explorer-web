@@ -1,99 +1,204 @@
-import { MapPin, Compass, Users, Navigation } from "lucide-react";
+import {
+  MapPin,
+  Compass,
+  Users,
+  Navigation,
+} from "lucide-react";
 
 export default function Home() {
+
   return (
-    <div className="container-custom">
+
+    <main className="container-custom home-layout">
 
       {/* HERO */}
-      <section className="card section-padding text-center">
-        <h1>
-          Discover meaningful places around you
-        </h1>
 
-        <p className="mt-6 max-w-2xl mx-auto text-muted">
-          Explorer helps you find, share, and categorize real-world places based on vibe, location, and experience.
-        </p>
+      <section className="card section text-center">
 
-        <div className="hero-button mt-10">
-          <button className="btn-primary">Get Started</button>
-          <button className="btn-outline">Explore Features</button>
+        <div className="hero-content">
+
+          <h1>
+            Discover meaningful places around you
+          </h1>
+
+          <p className="text-muted hero-text">
+            Explorer helps you find, share, and categorize
+            real-world places based on vibe, location,
+            and experience.
+          </p>
+
+          <div className="hero-buttons">
+
+            <button className="btn-primary">
+              Get Started
+            </button>
+
+            <button className="btn-outline">
+              Explore Features
+            </button>
+
+          </div>
+
         </div>
+
       </section>
 
       {/* FEATURES */}
-      <section className="card section-padding text-center">
-        <h2>
-          Built for real-world exploration
-        </h2>
 
-        <div className="grid md:grid-cols-4 gap-6">
-          <FeatureCard icon={<MapPin size={26} />} title="Location Discovery" desc="Find nearby places instantly." />
-          <FeatureCard icon={<Compass size={26} />} title="Vibe Categorization" desc="Sort places by mood." />
-          <FeatureCard icon={<Users size={26} />} title="Community Driven" desc="Users contribute content." />
-          <FeatureCard icon={<Navigation size={26} />} title="Smart Navigation" desc="Navigate easily." />
+      <section className="card section-cta section">
+
+        <div className="section-header text-center">
+
+          <h2>
+            Built for real-world exploration
+          </h2>
+
         </div>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+          <FeatureCard
+            icon={<MapPin size={26} />}
+            title="Location Discovery"
+            desc="Find nearby places instantly."
+          />
+
+          <FeatureCard
+            icon={<Compass size={26} />}
+            title="Vibe Categorization"
+            desc="Sort places by mood."
+          />
+
+          <FeatureCard
+            icon={<Users size={26} />}
+            title="Community Driven"
+            desc="Users contribute content."
+          />
+
+          <FeatureCard
+            icon={<Navigation size={26} />}
+            title="Smart Navigation"
+            desc="Navigate easily."
+          />
+
+        </div>
+
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="card section-padding text-center">
-        <h2>
-          How it works
-        </h2>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
-          <FeatureCard
-            icon={<div className="step-circle">1</div>}
+      <section className="card section-alt section">
+
+        <div className="section-header text-center">
+
+          <h2>
+            How it works
+          </h2>
+
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+
+          <StepCard
+            number="1"
             title="Discover places"
             desc="Find trending locations nearby."
           />
-          <FeatureCard
-            icon={<div className="step-circle">2</div>}
+
+          <StepCard
+            number="2"
             title="Share experiences"
             desc="Add and categorize places."
           />
-          <FeatureCard
-            icon={<div className="step-circle">3</div>}
+
+          <StepCard
+            number="3"
             title="Navigate easily"
             desc="Get directions instantly."
           />
+
         </div>
+
       </section>
 
-
       {/* FINAL CTA */}
-      <section className="card section-padding text-center">
+
+      <section className="card section-cta section text-center">
+
         <h2>
           Start exploring smarter today
         </h2>
 
-        <p>
+        <p className="text-muted">
           Join a new way of discovering places.
         </p>
 
-        <button className="mt-8 btn-light">Launch App</button>
+        <button className="btn-primary mt-8">
+          Launch App
+        </button>
+
       </section>
+
+    </main>
+  );
+}
+
+/* =========================
+   FEATURE CARD
+========================= */
+
+function FeatureCard({
+  icon,
+  title,
+  desc,
+}) {
+
+  return (
+
+    <div className="feature-card">
+
+      <div className="feature-icon">
+        {icon}
+      </div>
+
+      <h3>
+        {title}
+      </h3>
+
+      <p className="text-muted">
+        {desc}
+      </p>
+
     </div>
   );
 }
 
-/* ---------------- COMPONENTS ---------------- */
+/* =========================
+   STEP CARD
+========================= */
 
-function FeatureCard({ icon, title, desc }) {
-  return (
-    <div className="card p-6 text-center">
-      <div className="text-primary">{icon}</div>
-      <h3 className="mt-4 font-semibold">{title}</h3>
-      <p className="mt-2 text-sm text-muted">{desc}</p>
-    </div>
-  );
-}
+function StepCard({
+  number,
+  title,
+  desc,
+}) {
 
-function Step({ number, title, desc }) {
   return (
-    <div className="flex flex-col items-start text-left">
-      <div className="step-circle">{number}</div>
-      <h3 className="mt-4 font-semibold">{title}</h3>
-      <p className="mt-2 text-sm text-muted">{desc}</p>
+
+    <div className="step-card">
+
+      <div className="step-circle">
+        {number}
+      </div>
+
+      <h3>
+        {title}
+      </h3>
+
+      <p className="text-muted">
+        {desc}
+      </p>
+
     </div>
   );
 }

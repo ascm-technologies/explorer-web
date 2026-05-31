@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'DM Serif Display', serif;
+}
+
+p {
+  color: var(--color-text);
+  opacity: 0.75;
+
+  font-size: 1rem;
+  line-height: 1.6;
+
+  margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+}

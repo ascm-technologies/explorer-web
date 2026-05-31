@@ -1,0 +1,18 @@
+:root {
+  /* Brand */
+  --color-primary: #0047AB;
+  --color-primary-dark: #000080;
+  --color-accent: #82c8E5;
+  --color-muted: #6D8196;
+
+  /* Surface System */
+  --color-bg: #f4f7fb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #eef4fb;
+
+  --color-border: #dbe6f2;
+
+  /* Typography */
+  --color-text: #0b1b3a;
+  --color-text-accent: #82c8e5;
+}
