@@ -15,4 +15,7 @@
   /* Typography */
   --color-text: #0b1b3a;
   --color-text-accent: #82c8e5;
+
+  /* Layout */
+  --layout-gap: 24px;
 }

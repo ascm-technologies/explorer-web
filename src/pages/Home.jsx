@@ -5,47 +5,94 @@ import {
   Navigation,
 } from "lucide-react";
 
+import Container from "../components/ui/Container";
+import Section from "../components/ui/Section";
+import Button from "../components/ui/Button";
+import FeatureCard from "../components/ui/FeatureCard";
+import StepCard from "../components/ui/StepCard";
+
 export default function Home() {
 
   return (
 
-    <main className="container-custom home-layout">
+    <Container className="home-layout">
 
       {/* HERO */}
 
-      <section className="card section text-center">
+      <Section className="text-center">
 
-        <div className="hero-content">
+        <div className="hero-grid">
 
-          <h1>
-            Discover meaningful places around you
-          </h1>
+          <div className="hero-copy">
 
-          <p className="text-muted hero-text">
-            Explorer helps you find, share, and categorize
-            real-world places based on vibe, location,
-            and experience.
-          </p>
+            <span className="hero-badge">
+              Discover • Share • Explore
+            </span>
 
-          <div className="hero-buttons">
+            <h1>
+              Discover meaningful places around you
+            </h1>
 
-            <button className="btn-primary">
-              Get Started
-            </button>
+            <p className="text-muted hero-text">
+              Explorer helps you find, share,
+              and categorize real-world places
+              based on vibe, location and experience.
+            </p>
 
-            <button className="btn-outline">
-              Explore Features
-            </button>
+            <div className="hero-buttons">
+
+              <Button>
+                Get Started
+              </Button>
+
+              <Button variant="outline">
+                Explore Features
+              </Button>
+
+            </div>
+
+            <div className="hero-stats">
+
+              <div>
+                <strong>1000+</strong>
+                <span>Places</span>
+              </div>
+
+              <div>
+                <strong>50+</strong>
+                <span>Categories</span>
+              </div>
+
+              <div>
+                <strong>24/7</strong>
+                <span>Exploration</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="hero-preview">
+
+            <div className="preview-card">
+
+              <div className="preview-map">
+
+                Explorer Map Preview
+
+              </div>
+
+            </div>
 
           </div>
 
         </div>
 
-      </section>
+      </Section>
 
       {/* FEATURES */}
 
-      <section className="card section-cta section">
+      <Section className="section-cta">
 
         <div className="section-header text-center">
 
@@ -83,11 +130,11 @@ export default function Home() {
 
         </div>
 
-      </section>
+      </Section>
 
       {/* HOW IT WORKS */}
 
-      <section className="card section-alt section">
+      <Section className="section-alt">
 
         <div className="section-header text-center">
 
@@ -119,11 +166,11 @@ export default function Home() {
 
         </div>
 
-      </section>
+      </Section>
 
-      {/* FINAL CTA */}
+      {/* CTA */}
 
-      <section className="card section-cta section text-center">
+      <Section className="section-cta text-center">
 
         <h2>
           Start exploring smarter today
@@ -133,72 +180,13 @@ export default function Home() {
           Join a new way of discovering places.
         </p>
 
-        <button className="btn-primary mt-8">
+        <Button className="mt-8">
           Launch App
-        </button>
+        </Button>
 
-      </section>
+      </Section>
 
-    </main>
-  );
-}
+    </Container>
 
-/* =========================
-   FEATURE CARD
-========================= */
-
-function FeatureCard({
-  icon,
-  title,
-  desc,
-}) {
-
-  return (
-
-    <div className="feature-card">
-
-      <div className="feature-icon">
-        {icon}
-      </div>
-
-      <h3>
-        {title}
-      </h3>
-
-      <p className="text-muted">
-        {desc}
-      </p>
-
-    </div>
-  );
-}
-
-/* =========================
-   STEP CARD
-========================= */
-
-function StepCard({
-  number,
-  title,
-  desc,
-}) {
-
-  return (
-
-    <div className="step-card">
-
-      <div className="step-circle">
-        {number}
-      </div>
-
-      <h3>
-        {title}
-      </h3>
-
-      <p className="text-muted">
-        {desc}
-      </p>
-
-    </div>
   );
 }
