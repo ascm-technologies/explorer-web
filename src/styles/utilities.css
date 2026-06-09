@@ -14,3 +14,13 @@
   background: var(--color-surface-alt);
   color: var(--color-primary);
 }
+
+.text-center-mobile {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .text-center-mobile {
+    text-align: center;
+  }
+}

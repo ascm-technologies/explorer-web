@@ -1,12 +1,60 @@
+
+<<<<<<< Updated upstream
+.home-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+=======
+/* =========================
+   CONTAINER-LAYOUT
+========================= */
 .container-custom {
-  width: min(1280px, calc(100% - 48px));
+  width: 100%;
+  max-width: 1200px;
+
   margin-inline: auto;
+
+  padding-inline: var(--space-6);
+
+  box-sizing: border-box;
 }
 
 .home-layout {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+
+  gap: var(--space-8);
+
+  margin-top: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .container-custom {
+    padding-inline: var(--space-4);
+  }
+}
+
+/* =========================
+   GLASS EFFECT
+========================= */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-sm);
+
+  border-radius: var(--radius-lg);
+}
+
+.glass-strong {
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(var(--blur-lg));
+  -webkit-backdrop-filter: blur(var(--blur-lg));
+
+  box-shadow: var(--shadow-md);
+>>>>>>> Stashed changes
 }
 
 /* =========================
@@ -14,34 +62,59 @@
 ========================= */
 
 .navbar {
+<<<<<<< Updated upstream
   width: 100%;
   max-width: 1100px;
 
   margin: 16px auto 0;
   padding: 18px 24px;
+=======
+  margin: var(--space-6) auto 0;
+  padding: var(--space-4) var(--space-6);
+>>>>>>> Stashed changes
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 
+<<<<<<< Updated upstream
   gap: 16px;
 
   background: var(--color-surface);
 
   border: 1px solid var(--color-border);
   border-radius: 20px;
+=======
+  gap: var(--space-4);
+
+  max-width: 1200px;
+  width: calc(100% - (var(--space-6) * 2));
+>>>>>>> Stashed changes
 
   position: sticky;
-  top: 16px;
+  top: var(--space-4);
 
   z-index: 1000;
 
+<<<<<<< Updated upstream
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
+=======
+  border-radius: var(--radius-lg);
+
+  /* REPLACE OLD BACKGROUND + SHADOW */
+  background: var(--bg-glass);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-sm);
+>>>>>>> Stashed changes
 }
 
 .nav-links {
   display: flex;
+<<<<<<< Updated upstream
   gap: 18px;
   flex-wrap: wrap;
 }
@@ -50,6 +123,14 @@
   text-decoration: none;
   color: var(--color-text);
   font-weight: 500;
+=======
+  align-items: center;
+  flex-direction: row;
+
+  gap: var(--space-4);
+
+  white-space: nowrap;
+>>>>>>> Stashed changes
 }
 
 .nav-links a:hover {
@@ -61,10 +142,10 @@
   font-weight: 700;
 
   color: var(--color-primary);
-
   text-decoration: none;
 }
 
+<<<<<<< Updated upstream
 @media (max-width: 640px) {
 
   .nav-links {
@@ -74,16 +155,25 @@
 
 }
 
+=======
+>>>>>>> Stashed changes
 /* =========================
    FOOTER
 ========================= */
-
 .footer {
+<<<<<<< Updated upstream
   width: 100%;
   max-width: 1100px;
 
   margin: 24px auto 16px;
   padding: 24px;
+=======
+  margin: var(--space-6) auto;
+  padding: var(--space-4) var(--space-6);
+
+  width: 100%;
+  max-width: 1200px;
+>>>>>>> Stashed changes
 
   background: var(--color-surface);
 
@@ -100,6 +190,7 @@
   flex-direction: column;
   align-items: center;
 
+<<<<<<< Updated upstream
   gap: 8px;
 }
 
@@ -169,3 +260,34 @@
   }
 
 }
+=======
+  gap: var(--space-3);
+
+  padding-block: var(--space-5);
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .container-custom {
+    padding-inline: var(--space-4);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    white-space: normal;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
+>>>>>>> Stashed changes

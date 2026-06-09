@@ -1,0 +1,176 @@
+/* =========================
+   SECTIONS
+========================= */
+.hero-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-section,
+.home-layout .section:first-child {
+  padding-block: var(--space-9);
+}
+
+.section {
+  padding: var(--space-9) var(--space-7);
+
+  background: var(--color-surface);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
+
+.section-alt {
+  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
+
+.section-header {
+  margin-bottom: var(--space-8);
+}
+
+.section-cta {
+  background: linear-gradient(
+    135deg,
+    var(--color-surface-alt),
+    var(--color-primary-dark)
+  );
+
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-7) var(--space-5);
+  }
+
+  .hero-section,
+  .home-layout .section:first-child {
+    padding-block: var(--space-8);
+  }
+}
+
+/* =========================
+   HERO
+========================= */
+.hero-text {
+  max-width: 60ch;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: var(--space-4);
+}
+
+.hero-buttons > * {
+  min-width: 180px;
+}
+
+.hero-grid {
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  gap: var(--space-6);
+}
+
+.hero-badge {
+  display: inline-flex;
+  width: fit-content;
+
+  padding: var(--space-3) var(--space-4);
+
+  border-radius: 999px;
+
+  background: rgba(0, 71, 171, .08);
+  color: var(--color-primary);
+
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.hero-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 0;
+}
+
+/* Stats */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: var(--space-4);
+}
+
+.hero-stats div {
+  min-width: 80px;
+
+  padding: var(--space-5);
+
+  border-radius: 12px;
+
+  background: var(--color-surface-alt);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stats strong {
+
+  font-size: 1.75rem;
+
+  color: var(--color-primary);
+}
+
+.hero-stats span {
+
+  font-size: .875rem;
+
+  color: var(--color-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-stats {
+    justify-content: center;
+  }
+}
+
+/* =========================
+   PREVIEW CARD
+========================= */
+.preview-map {
+  width: 100%;
+  min-height: clamp(320px, 40vh, 520px);
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-6);
+  box-sizing: border-box;
+}

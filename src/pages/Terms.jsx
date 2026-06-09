@@ -1,22 +1,26 @@
+import Container from "../components/ui/Container";
+import Section from "../components/ui/Section";
+import "../styles/document.css";
+
 export default function Terms() {
   return (
-    <div className="container-custom">
+    <Container>
 
-      <div className="card section-padding">
+      <div className="document-page">
 
         {/* Header */}
-        <div className="border-b pb-6 mb-8">
+        <div className="document-header">
           <h1>
             Terms of Service
           </h1>
 
-          <p className="mt-3 text-muted">
+          <p className="text-muted">
             Last Updated: March 6, 2026
           </p>
         </div>
 
         {/* Intro */}
-        <section className="space-y-4 text-muted leading-8">
+        <section className="text-muted document-section">
           <p>
             By downloading or using the Explorer App,
             you agree to these Terms of Service.
@@ -29,7 +33,7 @@ export default function Terms() {
         </section>
 
         {/* Sections */}
-        <div className="mt-12 space-y-12">
+        <div className="document-content">
 
           <TermsSection title="1. Acceptance of Terms">
             <p>
@@ -172,7 +176,7 @@ export default function Terms() {
               Questions or concerns regarding these Terms may be sent to:
             </p>
 
-            <p className="mt-4 font-medium">
+            <p className="document-contact">
               ascm.technologies@outlook.com
             </p>
           </TermsSection>
@@ -181,7 +185,7 @@ export default function Terms() {
 
       </div>
 
-    </div>
+    </Container>
   );
 }
 
@@ -191,9 +195,24 @@ function TermsSection({ title, children }) {
   return (
     <section>
       <h2>{title}</h2>
-      <div className="space-y-4 text-muted leading-8">
+      <div className="document-section">
         {children}
       </div>
     </section>
   );
 }
+
+function SubSection({ title, children }) {
+  return (
+    <section className="document-section">
+
+      <h2>{title}</h2>
+
+      <div>
+        {children}
+      </div>
+
+    </section>
+  );
+}
+

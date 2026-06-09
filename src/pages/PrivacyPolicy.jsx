@@ -1,22 +1,26 @@
+import Container from "../components/ui/Container";
+import Section from "../components/ui/Section";
+import "../styles/document.css";
+
 export default function PrivacyPolicy() {
   return (
-    <div className="container-custom">
+    <Container>
 
-      <div className="card section-padding">
+      <div className="document-page">
 
         {/* Header */}
-        <div className="border-b pb-6 mb-8">
-          <h1>
-            Privacy Policy
-          </h1>
+        <header className="document-header">
 
-          <p className="mt-3 text-muted">
+          <h1>Privacy Policy</h1>
+
+          <p className="text-muted">
             Last Updated: March 8, 2026
           </p>
-        </div>
+
+        </header>
 
         {/* Intro */}
-        <section className="space-y-4 text-muted leading-8">
+        <section className="text-muted document-section">
           <p>
             Explorer respects your privacy and is committed to protecting the
             personal information of users who use the Explorer mobile application.
@@ -34,7 +38,7 @@ export default function PrivacyPolicy() {
         </section>
 
         {/* Sections */}
-        <div className="mt-12 space-y-12">
+        <div className="document-content">
 
           <PolicySection title="1. Information We Collect">
             <SubSection title="Account Information">
@@ -94,19 +98,14 @@ export default function PrivacyPolicy() {
               is securely stored using trusted cloud infrastructure providers.
             </p>
 
-            <p className="mt-4">
+            <p>
               Reasonable measures are taken to protect information from
               unauthorized access, misuse, or loss.
             </p>
           </PolicySection>
 
           <PolicySection title="4. Third-Party Services">
-            <p>
-              Explorer may rely on third-party services for authentication,
-              cloud storage, maps, navigation, and analytics functionality.
-            </p>
-
-            <ul className="mt-4">
+            <ul>
               <li>Authentication Services</li>
               <li>Cloud Storage Services</li>
               <li>Mapping and Navigation Services</li>
@@ -129,11 +128,7 @@ export default function PrivacyPolicy() {
           </PolicySection>
 
           <PolicySection title="7. Data Sharing">
-            <p>
-              Explorer does not sell user data to third parties.
-            </p>
-
-            <ul className="mt-4">
+            <ul>
               <li>Map services</li>
               <li>Cloud infrastructure providers</li>
               <li>Authentication providers</li>
@@ -167,7 +162,7 @@ export default function PrivacyPolicy() {
               Questions or requests regarding this Privacy Policy may be sent to:
             </p>
 
-            <p className="mt-4 font-medium">
+            <p className="document-contact">
               ascm.technologies@outlook.com
             </p>
           </PolicySection>
@@ -176,36 +171,32 @@ export default function PrivacyPolicy() {
 
       </div>
 
-    </div>
+    </Container>
   );
 }
 
-/* ---------- REUSABLE COMPONENTS ---------- */
-
 function PolicySection({ title, children }) {
   return (
-    <section>
-      <h2>
-        {title}
-      </h2>
+    <section className="document-section">
 
-      <div className="space-y-4 text-muted leading-8">
+      <h2>{title}</h2>
+
+      <div className="text-muted">
         {children}
       </div>
+
     </section>
   );
 }
 
 function SubSection({ title, children }) {
   return (
-    <div>
-      <h3>
-        {title}
-      </h3>
+    <div className="document-section">
 
-      <div className="space-y-3">
-        {children}
-      </div>
+      <h3>{title}</h3>
+
+      {children}
+
     </div>
   );
 }

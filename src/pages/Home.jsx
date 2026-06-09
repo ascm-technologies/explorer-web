@@ -17,6 +17,7 @@ export default function Home() {
 
         <div className="hero-content">
 
+<<<<<<< Updated upstream
           <h1>
             Discover meaningful places around you
           </h1>
@@ -36,12 +37,69 @@ export default function Home() {
             <button className="btn-outline">
               Explore Features
             </button>
+=======
+          <span className="hero-badge">
+            Discover • Share • Explore
+          </span>
+
+          <h1>
+            Discover meaningful places around you
+          </h1>
+
+          <p className="text-muted hero-text">
+            Explorer helps you find, share,
+            and categorize real-world places
+            based on vibe, location and experience.
+          </p>
+
+          <div className="hero-buttons">
+
+            <Button>
+              Get Started
+            </Button>
+
+            <Button variant="outline">
+              Explore Features
+            </Button>
+
+          </div>
+
+          <div className="hero-stats">
+
+            <div>
+              <strong>1000+</strong>
+              <span>Places</span>
+            </div>
+
+            <div>
+              <strong>50+</strong>
+              <span>Categories</span>
+            </div>
+
+            <div>
+              <strong>24/7</strong>
+              <span>Exploration</span>
+            </div>
+>>>>>>> Stashed changes
 
           </div>
 
         </div>
 
       </section>
+
+
+      <Section className="section-alt">
+        <div className="hero-preview">
+
+          <div className="preview-map">
+
+            Explorer Map Preview
+
+          </div>
+
+        </div>
+      </Section>
 
       {/* FEATURES */}
 

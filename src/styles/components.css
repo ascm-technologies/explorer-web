@@ -16,6 +16,25 @@
 /* =========================
    BUTTONS
 ========================= */
+.btn-primary,
+.btn-outline {
+  flex: 1;
+  min-width: 160px;
+  max-width: 260px;
+
+  height: 56px;
+
+  padding: 0 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  border-radius: 14px;
+}
 
 .btn-primary {
   background: var(--color-primary);
@@ -30,10 +49,15 @@
 
 .btn-outline {
   background: transparent;
-
   border: 1px solid var(--color-border);
+<<<<<<< Updated upstream
   border-radius: 12px;
 
+=======
+  border-radius: var(--radius-md);
+  transition: all .2s var(--ease-out);
+  cursor: pointer;
+>>>>>>> Stashed changes
   color: var(--color-text);
 }
 
@@ -57,11 +81,44 @@
   background: var(--color-primary-dark);
 }
 
+@media (max-width: 420px) {
+  .hero-buttons {
+    justify-content: center;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    flex: 1 1 140px;
+    max-width: 200px;
+  }
+}
+
 /* =========================
    FEATURE CARD
 ========================= */
+<<<<<<< Updated upstream
+=======
+.card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(var(--blur-sm));
+
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+>>>>>>> Stashed changes
 
 .feature-card {
+  width: 100%;
   padding: 32px 24px;
 
   background: var(--color-surface-alt);
