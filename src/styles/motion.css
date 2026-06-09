@@ -1,0 +1,16 @@
+/* =========================
+   MOTION SYSTEM
+========================= */
+
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+}
+
+.transition-fast {
+  transition: all 150ms var(--ease-out);
+}
+
+.transition-medium {
+  transition: all 250ms var(--ease-out);
+}

@@ -1,140 +1,63 @@
-
-<<<<<<< Updated upstream
-.home-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-=======
-/* =========================
-   CONTAINER-LAYOUT
-========================= */
 .container-custom {
-  width: 100%;
-  max-width: 1200px;
-
+  width: min(1280px, calc(100% - 48px));
   margin-inline: auto;
-
-  padding-inline: var(--space-6);
-
-  box-sizing: border-box;
-}
-
-.home-layout {
-  display: flex;
-  flex-direction: column;
-
-  gap: var(--space-8);
-
-  margin-top: var(--space-8);
 }
 
 @media (max-width: 768px) {
   .container-custom {
-    padding-inline: var(--space-4);
+    width: calc(100% - 32px);
   }
 }
 
-/* =========================
-   GLASS EFFECT
-========================= */
-.glass {
-  background: var(--bg-glass);
-  backdrop-filter: blur(var(--blur-md));
-  -webkit-backdrop-filter: blur(var(--blur-md));
-
-  border: 1px solid var(--border-glass);
-  box-shadow: var(--shadow-sm);
-
-  border-radius: var(--radius-lg);
-}
-
-.glass-strong {
-  background: var(--bg-glass-strong);
-  backdrop-filter: blur(var(--blur-lg));
-  -webkit-backdrop-filter: blur(var(--blur-lg));
-
-  box-shadow: var(--shadow-md);
->>>>>>> Stashed changes
+.home-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+  margin-top: var(--layout-gap);
 }
 
 /* =========================
    NAVBAR
 ========================= */
-
 .navbar {
-<<<<<<< Updated upstream
-  width: 100%;
-  max-width: 1100px;
-
-  margin: 16px auto 0;
+  margin: var(--layout-gap) auto 0;
   padding: 18px 24px;
-=======
-  margin: var(--space-6) auto 0;
-  padding: var(--space-4) var(--space-6);
->>>>>>> Stashed changes
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 
-<<<<<<< Updated upstream
-  gap: 16px;
+  gap: 18px;
 
   background: var(--color-surface);
-
   border: 1px solid var(--color-border);
   border-radius: 20px;
-=======
-  gap: var(--space-4);
-
-  max-width: 1200px;
-  width: calc(100% - (var(--space-6) * 2));
->>>>>>> Stashed changes
 
   position: sticky;
-  top: var(--space-4);
+  top: 16px;
 
   z-index: 1000;
 
-<<<<<<< Updated upstream
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
-=======
-  border-radius: var(--radius-lg);
-
-  /* REPLACE OLD BACKGROUND + SHADOW */
-  background: var(--bg-glass);
-  backdrop-filter: blur(var(--blur-md));
-  -webkit-backdrop-filter: blur(var(--blur-md));
-
-  border: 1px solid var(--border-glass);
-  box-shadow: var(--shadow-sm);
->>>>>>> Stashed changes
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
 }
 
 .nav-links {
   display: flex;
-<<<<<<< Updated upstream
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--color-text);
-  font-weight: 500;
-=======
-  align-items: center;
   flex-direction: row;
-
-  gap: var(--space-4);
-
+  align-items: center;
+  gap: 18px;
   white-space: nowrap;
->>>>>>> Stashed changes
 }
 
 .nav-links a:hover {
   color: var(--color-primary);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .brand-text {
@@ -142,135 +65,11 @@
   font-weight: 700;
 
   color: var(--color-primary);
+
   text-decoration: none;
 }
 
-<<<<<<< Updated upstream
-@media (max-width: 640px) {
-
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-  }
-
-}
-
-=======
->>>>>>> Stashed changes
-/* =========================
-   FOOTER
-========================= */
-.footer {
-<<<<<<< Updated upstream
-  width: 100%;
-  max-width: 1100px;
-
-  margin: 24px auto 16px;
-  padding: 24px;
-=======
-  margin: var(--space-6) auto;
-  padding: var(--space-4) var(--space-6);
-
-  width: 100%;
-  max-width: 1200px;
->>>>>>> Stashed changes
-
-  background: var(--color-surface);
-
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-
-  text-align: center;
-
-  box-shadow: 0 -2px 8px rgba(0,0,0,.08);
-}
-
-.footer .container-custom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-<<<<<<< Updated upstream
-  gap: 8px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-.hero-content {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.hero-section,
-.home-layout .section:first-child {
-  padding-top: 96px;
-  padding-bottom: 96px;
-}
-
-.section {
-  padding: 72px 56px;
-
-  background: var(--color-surface);
-
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-}
-
-.section-alt {
-  background: var(--color-surface-alt);
-
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-}
-
-.section-header {
-  margin-bottom: 48px;
-}
-
-.section-cta {
-  background: linear-gradient(
-    135deg,
-    var(--color-surface-alt),
-    var(--color-primary-dark)
-  );
-
-  color: var(--color-text);
-}
-
-.hero-text {
-  margin-top: 24px;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  gap: 16px;
-
-  margin-top: 40px;
-}
-
 @media (max-width: 768px) {
-
-  .section {
-    padding: 40px 24px;
-  }
-
-}
-=======
-  gap: var(--space-3);
-
-  padding-block: var(--space-5);
-}
-
-/* MEDIA QUERIES */
-@media (max-width: 768px) {
-  .container-custom {
-    padding-inline: var(--space-4);
-  }
 
   .nav-toggle {
     display: block;
@@ -280,8 +79,8 @@
     display: none;
     flex-direction: column;
     width: 100%;
-    gap: var(--space-3);
-    margin-top: var(--space-4);
+    gap: 12px;
+    margin-top: 12px;
     white-space: normal;
   }
 
@@ -290,4 +89,29 @@
   }
 }
 
->>>>>>> Stashed changes
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  margin:
+    var(--layout-gap) auto var(--layout-gap);
+  padding: 24px;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, .08);
+}
+
+.footer .container-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+}

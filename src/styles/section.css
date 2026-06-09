@@ -1,6 +1,7 @@
 /* =========================
    SECTIONS
 ========================= */
+
 .hero-content {
   max-width: 760px;
   margin: 0 auto;
@@ -8,29 +9,27 @@
 
 .hero-section,
 .home-layout .section:first-child {
-  padding-block: var(--space-9);
+  padding-block: 80px;
 }
 
 .section {
-  padding: var(--space-9) var(--space-7);
+  padding: 72px 56px;
 
   background: var(--color-surface);
-  backdrop-filter: blur(10px);
 
   border: 1px solid var(--color-border);
   border-radius: 20px;
 }
 
 .section-alt {
-  background: var(--color-surface);
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
+  background: var(--color-surface-alt);
+
   border: 1px solid var(--color-border);
   border-radius: 20px;
 }
 
 .section-header {
-  margin-bottom: var(--space-8);
+  margin-bottom: 48px;
 }
 
 .section-cta {
@@ -43,22 +42,8 @@
   color: var(--color-text);
 }
 
-@media (max-width: 768px) {
-  .section {
-    padding: var(--space-7) var(--space-5);
-  }
-
-  .hero-section,
-  .home-layout .section:first-child {
-    padding-block: var(--space-8);
-  }
-}
-
-/* =========================
-   HERO
-========================= */
 .hero-text {
-  max-width: 60ch;
+  margin-top: 24px;
 }
 
 .hero-buttons {
@@ -66,67 +51,61 @@
   justify-content: center;
   flex-wrap: wrap;
 
-  gap: var(--space-4);
+  gap: 16px;
+
+  margin-top: 40px;
 }
 
-.hero-buttons > * {
-  min-width: 180px;
+@media (max-width: 768px) {
+
+  .section {
+    padding: 40px 24px;
+  }
+
 }
 
+/* Section styles */
 .hero-grid {
-  max-width: 900px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
 
+.hero-copy {
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  text-align: center;
-
-  gap: var(--space-6);
 }
 
 .hero-badge {
   display: inline-flex;
   width: fit-content;
 
-  padding: var(--space-3) var(--space-4);
+  padding: 8px 14px;
 
   border-radius: 999px;
 
-  background: rgba(0, 71, 171, .08);
+  background: rgba(0,71,171,.08);
+
   color: var(--color-primary);
 
   font-size: .875rem;
   font-weight: 600;
-}
 
-.hero-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  min-width: 0;
+  margin-bottom: 24px;
 }
 
 /* Stats */
 .hero-stats {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
 
-  gap: var(--space-4);
+  display: flex;
+
+  gap: 48px;
+
+  margin-top: 48px;
 }
 
 .hero-stats div {
-  min-width: 80px;
-
-  padding: var(--space-5);
-
-  border-radius: 12px;
-
-  background: var(--color-surface-alt);
-
   display: flex;
   flex-direction: column;
 }
@@ -145,32 +124,66 @@
   color: var(--color-muted);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-stats {
-    justify-content: center;
-  }
-}
+/* Preview */
+.preview-card {
 
-/* =========================
-   PREVIEW CARD
-========================= */
-.preview-map {
-  width: 100%;
-  min-height: clamp(320px, 40vh, 520px);
+  height: 420px;
 
-  border-radius: 20px;
+  border-radius: 24px;
 
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-primary-dark)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #eef4fb
+    );
+
+  border: 1px solid var(--color-border);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: var(--space-6);
-  box-sizing: border-box;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+}
+
+.preview-map {
+
+  width: 85%;
+  height: 80%;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-primary-dark)
+    );
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
 }

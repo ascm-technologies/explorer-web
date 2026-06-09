@@ -1,50 +1,21 @@
 :root {
   /* Brand */
-  --color-primary: #3a6ea5;
-  --color-primary-dark: #2a4f78;
+  --color-primary: #0047AB;
+  --color-primary-dark: #000080;
   --color-accent: #82c8E5;
   --color-muted: #6D8196;
 
   /* Surface System */
-  --color-bg: #f6f3ee;
-  --color-surface: rgba(255, 255, 255, 0.6 );
+  --color-bg: #f4f7fb;
+  --color-surface: #ffffff;
   --color-surface-alt: #eef4fb;
-  --color-surface-strong: #ffffff;
 
-  --color-border: rgba(20, 20, 20, 0.08);
+  --color-border: #dbe6f2;
 
   /* Typography */
-  --color-text: #1c1b18;
-  --color-muted:#6f6a63;
+  --color-text: #0b1b3a;
   --color-text-accent: #82c8e5;
-<<<<<<< Updated upstream
-=======
 
   /* Layout */
   --layout-gap: 24px;
-}
-
-/* Additional design tokens */
-:root {
-  /* Background system */
-  --bg-glass: rgba(255, 255, 255, 0.6);
-  --bg-glass-strong: rgba(255, 255, 255, 0.75);
-
-  /* Blur system */
-  --blur-sm: 10px;
-  --blur-md: 14px;
-  --blur-lg: 18px;
-
-  /* Shadow system */
-  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
-
-  /* Border variants */
-  --border-glass: rgba(0, 0, 0, 0.06);
-
-  /* Radius system */
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
->>>>>>> Stashed changes
 }

@@ -1,69 +1,36 @@
-.card {
-  background: var(--color-surface);
-
-  border: 1px solid var(--color-border);
-  border-radius: 24px;
-
-  overflow: hidden;
-
-  box-shadow:
-    0 1px 2px rgba(0,0,0,.04),
-    0 8px 24px rgba(0,0,0,.06);
-
-  margin-bottom: 24px;
-}
-
 /* =========================
    BUTTONS
 ========================= */
-.btn-primary,
-.btn-outline {
-  flex: 1;
-  min-width: 160px;
-  max-width: 260px;
-
-  height: 56px;
-
-  padding: 0 24px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 1rem;
-  font-weight: 600;
-
-  border-radius: 14px;
-}
 
 .btn-primary {
   background: var(--color-primary);
   color: white;
-
-  border-radius: 12px;
+  transition: all .2s var(--ease-out);
+  cursor: pointer;
+  border-radius: var(--radius-md);
 }
 
 .btn-primary:hover {
   background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-outline {
   background: transparent;
-  border: 1px solid var(--color-border);
-<<<<<<< Updated upstream
-  border-radius: 12px;
 
-=======
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   transition: all .2s var(--ease-out);
   cursor: pointer;
->>>>>>> Stashed changes
+
   color: var(--color-text);
 }
 
 .btn-outline:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
+  transform: translateY(-1px);
 }
 
 .btn-light {
@@ -81,54 +48,37 @@
   background: var(--color-primary-dark);
 }
 
-@media (max-width: 420px) {
-  .hero-buttons {
-    justify-content: center;
-    overflow-x: hidden;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .btn-primary,
-  .btn-outline {
-    flex: 1 1 140px;
-    max-width: 200px;
-  }
-}
-
 /* =========================
-   FEATURE CARD
+   CARDS
 ========================= */
-<<<<<<< Updated upstream
-=======
 .card {
-  background: var(--bg-glass);
-  backdrop-filter: blur(var(--blur-sm));
-
-  border-radius: var(--radius-md);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
 
   box-shadow: var(--shadow-sm);
+  transition: all 0.2s var(--ease-out);
 }
 
 .card:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
->>>>>>> Stashed changes
 
 .feature-card {
-  width: 100%;
   padding: 32px 24px;
 
   background: var(--color-surface-alt);
 
   border: 1px solid var(--color-border);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s var(--ease-out);
+}
 
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .feature-card:hover {
@@ -160,14 +110,15 @@
 ========================= */
 
 .step-card {
-  display: flex;
-  flex-direction: column;
-
-  gap: 16px;
-
-  text-align: center;
-
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
   padding: 24px;
+
+  transition: all 0.2s var(--ease-out);
+}
+
+.step-card:hover {
+  transform: translateY(-2px);
 }
 
 .step-circle {
